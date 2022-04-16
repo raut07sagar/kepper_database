@@ -30,7 +30,7 @@ app.use(CORS())
 
 
 
-app.get("/getdata" ,validateToken, async(request,response)=>{
+app.get("/getdata" , async(request,response)=>{
     const client = await createconnections()
     const result = await client.db("kepper").collection("user").find({}).toArray()
     response.send(result)
